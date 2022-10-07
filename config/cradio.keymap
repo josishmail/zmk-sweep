@@ -66,19 +66,19 @@
         // symbols
         sym_layer {
             bindings = <
-                &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &kp GT      &kp RPAR     &kp RBRC     &kp RBKT     &kp PRCNT
-                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE    &kp CARET    &sk LSHFT    &sk LCTRL    &kp COLON
-                &kp HASH  &kp DLLR &kp AT    &kp AMPS  &kp MINUS          &kp EXCL    &kp QMARK    &kp BSLH     &kp DQT      &kp FSLH
-                                             &trans    &trans             &trans      &trans
+                &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
+                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
+                &kp HASH  &kp DLLR &kp AT    &kp AMPS  &kp MINUS          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
+                                             &trans    &trans             &trans   &trans
             >;
         };
 
         // Main modifiers and arrow keys
         ext_layer {
             bindings = <
-                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP &kp HOME &kp UP   &kp END   &kp DEL
-                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER
-                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &none     &none    &none    &none     &none
+                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP  &kp HOME     &kp UP       &kp END      &kp DEL
+                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
+                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
                                               &trans    &trans              &trans    &trans
             >;
         };
@@ -86,10 +86,10 @@
         // numbers and function keys
         num_layer {
             bindings = <
-                &kp F1  &kp F2  &kp F3 &kp F4 &kp F5              &kp F6     &kp F7       &kp F8       &kp F9       &kp F10 
-                &kp N1  &kp N2  &kp N3 &kp N4 &kp N5              &kp N6     &kp N7       &kp N8       &kp N9       &kp N0
-                &kp F11 &kp F12 &none  &none  &td_settings		  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
-                                       &trans &trans              &trans     &trans  
+                &kp N1 &kp N2    &kp N3    &kp N4   &kp N5              &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &none  &sk LCTRL &sk LSHFT &sk LALT &sk LCMD            &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
+                &none  &none     &kp F11   &kp F12  &td_settings		&kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
+                                           &trans   &trans              &trans &trans  
             >;
         };
 
