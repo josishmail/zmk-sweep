@@ -13,8 +13,10 @@
 #define DEFAULT 0
 #define SYM 1
 #define EXT 2
-#define NUM 3
-#define SETTINGS 4
+#define RMOD_SYM 3
+#define LMOD_EXT 4
+#define NUM 5
+#define SETTINGS 6
 // -----------------
 
 &sk {
@@ -79,6 +81,26 @@
                 &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP  &kp HOME     &kp UP       &kp END      &kp DEL
                 &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
                 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
+                                              &trans    &trans              &trans    &trans
+            >;
+        };
+        
+        // RModifer
+        lmod_sym_layer {
+            bindings = <
+                &kp Q &kp W &kp E &kp R   &kp T           &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
+                &kp A &kp S &kp D &kp F   &kp G           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
+                &kp Z &kp X &kp C &kp V   &kp B           &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
+                                  &trans  &trans          &trans   &trans
+            >;
+        };
+
+        // LModifier
+        rmod_ext_layer {
+            bindings = <
+                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp Y     &kp U &kp I     &kp O   &kp P 
+                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp H     &kp J &kp K     &kp L   &kp SEMI
+                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp N     &kp M &kp COMMA &kp DOT &kp SQT
                                               &trans    &trans              &trans    &trans
             >;
         };
