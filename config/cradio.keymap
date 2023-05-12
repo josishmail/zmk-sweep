@@ -39,37 +39,61 @@
         // reset all sticky modifiers
         ZMK_MACRO(unstick_macro,
             wait-ms = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp LCTRL &kp LALT>;
+            bindings = <&macro_release &kp LSHIFT &kp LCTRL &kp LALT &kp RSHIFT &kp RCTRL &kp RALT>;
         )
         
         ZMK_MACRO(lctrl_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl LMOD_EXT &sk LCTRL>;
+            bindings
+                = <&macro_press &sl LMOD_EXT &sk LCTRL>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl LMOD_EXT &sk LCTRL>
+                ;
         )
         
         ZMK_MACRO(lshft_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl LMOD_EXT &sk LSHFT>;
+            bindings
+                = <&macro_press &sl LMOD_EXT &sk LSHFT>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl LMOD_EXT &sk LSHFT>
+                ;
         )
         
         ZMK_MACRO(lalt_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl LMOD_EXT &sk LALT>;
+            bindings
+                = <&macro_press &sl LMOD_EXT &sk LALT>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl LMOD_EXT &sk LALT>
+                ;
         )
         
         ZMK_MACRO(lcmd_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl LMOD_EXT &sk LCMD>;
+            bindings
+                = <&macro_press &sl LMOD_EXT &sk LCMD>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl LMOD_EXT &sk LCMD>
+                ;
         )
         
         ZMK_MACRO(rctrl_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl RMOD_SYM &sk RCTRL>;
+            bindings
+                = <&macro_press &sl RMOD_SYM &sk RCTRL>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl RMOD_SYM &sk RCTRL>
+                ;
         )
         
         ZMK_MACRO(rshft_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl RMOD_SYM &sk RSHFT>;
+            bindings
+                = <&macro_press &sl RMOD_SYM &sk RSHFT>
+                , <&macro_pause_for_release>
+                , <&macro_release &sl RMOD_SYM &sk RSHFT>
+                ;
         )
     };
 
@@ -108,7 +132,7 @@
         ext_layer {
             bindings = <
                 &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP  &kp HOME     &kp UP       &kp END      &kp DEL
-                &kp TAB  &sk LCTRL  &lshft_macro &sk LALT  &sk LCMD		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
+                &kp TAB  &lctrl_macro  &lshft_macro &lalt_macro  &lcmd_macro		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
                 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
                                               &trans    &trans              &trans    &trans
             >;
