@@ -53,10 +53,7 @@
         
         ZMK_MACRO(lshft_macro,
             wait-ms = <0>;
-            bindings
-                = <&macro_press &sl LMOD_EXT &kp LSHFT>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl LMOD_EXT &kp LSHFT>;
+            bindings = <&macro_press &sl LMOD_EXT &kp LSHFT>;
         )
         
         ZMK_MACRO(lalt_macro,
