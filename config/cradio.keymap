@@ -61,6 +61,16 @@
             wait-ms = <0>;
             bindings = <&macro_press &sl LMOD_EXT &sk LCMD>;
         )
+        
+        ZMK_MACRO(rctrl_macro,
+            wait-ms = <0>;
+            bindings = <&macro_press &sl RMOD_EXT &sk RCTRL>;
+        )
+        
+        ZMK_MACRO(rshft_macro,
+            wait-ms = <0>;
+            bindings = <&macro_press &sl RMOD_EXT &sk RSHFT>;
+        )
     };
 
     conditional_layers {
@@ -88,7 +98,7 @@
         sym_layer {
             bindings = <
                 &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
+                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &rshft_macro &rctrl_macro &kp COLON
                 &kp HASH  &kp DLLR &kp AT    &kp AMPS  &kp MINUS          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
                                              &trans    &trans             &trans   &trans
             >;
@@ -108,7 +118,7 @@
         lmod_sym_layer {
             bindings = <
                 &kp Q &kp W &kp E &kp R   &kp T           &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &kp A &kp S &kp D &kp F   &kp G           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
+                &kp A &kp S &kp D &kp F   &kp G           &kp PIPE &kp CARET &rshft_macro &rshft_macro &kp COLON
                 &kp Z &kp X &kp C &kp V   &kp B           &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
                                   &trans  &trans          &trans   &trans
             >;
@@ -128,7 +138,7 @@
         num_layer {
             bindings = <
                 &kp N1 &kp N2    &kp N3    &kp N4   &kp N5                 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-                &none  &lctrl_macro &lshft_macro &lalt_macro &lcmd_macro   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
+                &none  &kp LCTRL &kp LSHFT &kp LALT &kp LCMD               &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
                 &none  &none     &kp F11   &kp F12  &td_settings		   &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
                                            &trans   &trans                 &trans &trans  
             >;
