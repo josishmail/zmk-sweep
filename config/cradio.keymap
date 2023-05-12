@@ -64,12 +64,12 @@
         
         ZMK_MACRO(rctrl_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl RMOD_EXT &sk RCTRL>;
+            bindings = <&macro_press &sl RMOD_SYM &sk RCTRL>;
         )
         
         ZMK_MACRO(rshft_macro,
             wait-ms = <0>;
-            bindings = <&macro_press &sl RMOD_EXT &sk RSHFT>;
+            bindings = <&macro_press &sl RMOD_SYM &sk RSHFT>;
         )
     };
 
