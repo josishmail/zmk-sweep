@@ -23,8 +23,8 @@
         label = #LABEL ; \
         #binding-cells = <0>; \
         bindings = <&kp KEYCODE>, <&trans>; \
-        mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
-        keep-mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
+        mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
+        keep-mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
     }
 
 &sk {
@@ -119,7 +119,7 @@
         // Main modifiers and arrow keys
         ext_layer {
             bindings = <
-                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &pg_up_trans  &home_trans     &up_trans       &end_trans      &del_trans
+                &kp ESC  &kt RCTRL  &kt RSHFT &kt RALT  &unstick_macro      &pg_up_trans  &home_trans     &up_trans       &end_trans      &del_trans
                 &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &pg_dn_trans  &left_trans     &down_trans     &right_trans    &enter_trans
                 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &c_mute_trans &c_vol_dn_trans &c_vol_up_trans &c_bri_dn_trans &c_bri_up_trans
                                               &trans    &trans              &trans    &trans
