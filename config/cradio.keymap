@@ -18,7 +18,7 @@
 // -----------------
 
 #define TRANS_MOD(KEYCODE, LABEL) \
-    LABEL: LABEL_behavior { \
+    LABEL: LABEL { \
         compatible = "zmk,behavior-mod-morph"; \
         label = #LABEL ; \
         #binding-cells = <0>; \
