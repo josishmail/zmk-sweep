@@ -20,7 +20,7 @@
 #define TRANS_MOD(KEYCODE, LABEL) \
     LABEL: LABEL_behavior { \
         compatible = "zmk,behavior-mod-morph"; \
-        label = #KEYCODE #LABEL; \
+        label = #LABEL ; \
         #binding-cells = <0>; \
         bindings = <&kp KEYCODE>, <&trans>; \
         mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
