@@ -13,11 +13,19 @@
 #define DEFAULT 0
 #define SYM 1
 #define EXT 2
-#define RMOD_SYM 3
-#define LMOD_EXT 4
-#define NUM 5
-#define SETTINGS 6
+#define NUM 3
+#define SETTINGS 4
 // -----------------
+
+#define TRANS_MOD(KEYCODE, LABEL) {\
+    LABEL: LABEL_behavior { \
+        compatible = "zmk,behavior-mod-morph"; \
+        label = "KEYCODE_LABEL"; \
+        #binding-cells = <0>; \
+        bindings = <&kp KEYCODE>, <&trans>; \
+        mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
+    }; \
+}
 
 &sk {
     quick-release; // Release sticky keys on next key-press
@@ -34,68 +42,14 @@
             tapping-term-ms = <500>;
             bindings = <&none>, <&none>, <&tog SETTINGS>;
         };
+        TRANS_MOD(GT, mod_y_gt);
     };
     macros {
         // reset all sticky modifiers
         ZMK_MACRO(unstick_macro,
             wait-ms = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp LCTRL &kp LALT &kp RSHIFT &kp RCTRL &kp RALT>;
-        )
-        
-        ZMK_MACRO(lctrl_macro,
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings
-                = <&macro_press &mo LMOD_EXT &kp LCTRL>
-                , <&macro_pause_for_release>
-                , <&macro_release &mo LMOD_EXT &kp LCTRL>
-                , <&macro_tap &sl LMOD_EXT &sk LCTRL>
-                ;
-        )
-        
-        ZMK_MACRO(lshft_macro,
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &mo LMOD_EXT &kp LSHFT>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl LMOD_EXT &sk LSHFT>
-                ;
-        )
-        
-        ZMK_MACRO(lalt_macro,
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &sl LMOD_EXT &sk LALT>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl LMOD_EXT &sk LALT>
-                ;
-        )
-        
-        ZMK_MACRO(lcmd_macro,
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &sl LMOD_EXT &sk LCMD>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl LMOD_EXT &sk LCMD>
-                ;
-        )
-        
-        ZMK_MACRO(rctrl_macro,
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &sl RMOD_SYM &sk RCTRL>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl RMOD_SYM &sk RCTRL>
-                ;
-        )
-        
-        ZMK_MACRO(rshft_macro,
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &sl RMOD_SYM &sk RSHFT>
-                , <&macro_pause_for_release>
-                , <&macro_release &sl RMOD_SYM &sk RSHFT>
-                ;
+            tap-ms = <40>;
+            bindings = <&macro_release &kp LSHIFT &kp LCTRL &kp LALT>;
         )
     };
 
@@ -123,8 +77,8 @@
         // symbols
         sym_layer {
             bindings = <
-                &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &rshft_macro &rctrl_macro &kp COLON
+                &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &mod_y_gt   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
+                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
                 &kp HASH  &kp DLLR &kp AT    &kp AMPS  &kp MINUS          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
                                              &trans    &trans             &trans   &trans
             >;
@@ -134,39 +88,19 @@
         ext_layer {
             bindings = <
                 &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP  &kp HOME     &kp UP       &kp END      &kp DEL
-                &kp TAB  &lctrl_macro  &lshft_macro &lalt_macro  &lcmd_macro		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
+                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
                 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
                                               &trans    &trans              &trans    &trans
-            >;
-        };
-        
-        // RModifer
-        lmod_sym_layer {
-            bindings = <
-                &kp Q &kp W &kp E &kp R   &kp T           &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &kp A &kp S &kp D &kp F   &kp G           &kp PIPE &kp CARET &rshft_macro &rshft_macro &kp COLON
-                &kp Z &kp X &kp C &kp V   &kp B           &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
-                                  &trans  &trans          &trans   &trans
-            >;
-        };
-
-        // LModifier
-        rmod_ext_layer {
-            bindings = <
-                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro        &kp Y     &kp U &kp I     &kp O   &kp P 
-                &kp TAB  &lctrl_macro &lshft_macro &lalt_macro &lcmd_macro    &kp H     &kp J &kp K     &kp L   &kp SEMI
-                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none                 &kp N     &kp M &kp COMMA &kp DOT &kp SQT
-                                              &trans    &trans                &trans    &trans
             >;
         };
 
         // numbers and function keys
         num_layer {
             bindings = <
-                &kp N1 &kp N2    &kp N3    &kp N4   &kp N5                 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-                &none  &kp LCTRL &kp LSHFT &kp LALT &kp LCMD               &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
-                &none  &none     &kp F11   &kp F12  &td_settings		   &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
-                                           &trans   &trans                 &trans &trans  
+                &kp N1 &kp N2    &kp N3    &kp N4   &kp N5              &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &none  &sk LCTRL &sk LSHFT &sk LALT &sk LCMD            &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
+                &none  &none     &kp F11   &kp F12  &td_settings		&kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
+                                           &trans   &trans              &trans &trans  
             >;
         };
 
