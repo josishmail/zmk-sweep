@@ -17,15 +17,13 @@
 #define SETTINGS 4
 // -----------------
 
-#define TRANS_MOD(KEYCODE, LABEL) {\
-    LABEL: LABEL_behavior { \
+#define TRANS_MOD(KEYCODE, LABEL) LABEL: LABEL_behavior { \
         compatible = "zmk,behavior-mod-morph"; \
         label = "KEYCODE_LABEL"; \
         #binding-cells = <0>; \
         bindings = <&kp KEYCODE>, <&trans>; \
         mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
-    }; \
-}
+    };
 
 &sk {
     quick-release; // Release sticky keys on next key-press
