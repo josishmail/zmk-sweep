@@ -24,6 +24,7 @@
         #binding-cells = <0>; \
         bindings = <&kp KEYCODE>, <&trans>; \
         mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
+        keep-mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
     }
 
 &sk {
