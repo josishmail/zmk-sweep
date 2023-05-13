@@ -20,7 +20,7 @@
 #define TRANS_MOD(KEYCODE, LABEL) \
     LABEL: LABEL_behavior { \
         compatible = "zmk,behavior-mod-morph"; \
-        label = "KEYCODE_LABEL"; \
+        label = #KEYCODE #LABEL; \
         #binding-cells = <0>; \
         bindings = <&kp KEYCODE>, <&trans>; \
         mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>; \
@@ -41,6 +41,7 @@
             tapping-term-ms = <500>;
             bindings = <&none>, <&none>, <&tog SETTINGS>;
         };
+
         TRANS_MOD(TILDE, tilde_trans);
         TRANS_MOD(LBKT, lbkt_trans);
         TRANS_MOD(LBRC, lbrc_trans);
