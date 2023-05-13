@@ -41,7 +41,38 @@
             tapping-term-ms = <500>;
             bindings = <&none>, <&none>, <&tog SETTINGS>;
         };
-        TRANS_MOD(GT, mod_y_gt);
+        TRANS_MOD(TILDE, tilde_trans);
+        TRANS_MOD(LBKT, lbkt_trans);
+        TRANS_MOD(LBRC, lbrc_trans);
+        TRANS_MOD(LPAR, lpar_trans);
+        TRANS_MOD(LT, lt_trans);
+        TRANS_MOD(GRAVE, grave_trans);
+        TRANS_MOD(STAR, star_trans);
+        TRANS_MOD(EQUAL, equal_trans);
+        TRANS_MOD(UNDER, under_trans);
+        TRANS_MOD(PLUS, plus_trans);
+        TRANS_MOD(HASH, hash_trans);
+        TRANS_MOD(DLLR, dllr_trans);
+        TRANS_MOD(AT, at_trans);
+        TRANS_MOD(AMPS, amps_trans);
+        TRANS_MOD(MINUS, minus_trans);
+        
+        TRANS_MOD(PG_UP, pg_up_trans);
+        TRANS_MOD(HOME, home_trans);
+        TRANS_MOD(UP, up_trans);
+        TRANS_MOD(END, end_trans);
+        TRANS_MOD(DEL, del_trans);
+        TRANS_MOD(PG_DN, pg_dn_trans);
+        TRANS_MOD(LEFT, left_trans);
+        TRANS_MOD(DOWN, down_trans);
+        TRANS_MOD(RIGHT, right_trans);
+        TRANS_MOD(ENTER, enter_trans);
+        TRANS_MOD(C_MUTE, c_mute_trans);
+        TRANS_MOD(C_VOL_DN, c_vol_dn_trans);
+        TRANS_MOD(C_VOL_UP, c_vol_up_trans);
+        TRANS_MOD(C_BRI_DN, c_bri_dn_trans);
+        TRANS_MOD(C_BRI_UP, c_bri_up_trans);
+        
     };
     macros {
         // reset all sticky modifiers
@@ -76,19 +107,19 @@
         // symbols
         sym_layer {
             bindings = <
-                &kp TILDE &kp LBKT &kp LBRC  &kp LPAR  &kp LT             &mod_y_gt   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &kp GRAVE &kp STAR &kp EQUAL &kp UNDER &kp PLUS           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
-                &kp HASH  &kp DLLR &kp AT    &kp AMPS  &kp MINUS          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
-                                             &trans    &trans             &trans   &trans
+                &tilde_trans &lbkt_trans &lbrc_trans  &lpar_trans  &lt_trans             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
+                &grave_trans &star_trans &equal_trans &under_trans &plus_trans           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
+                &hash_trans  &dllr_trans &at_trans    &amps_trans  &minus_trans          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
+                                                      &trans       &trans                &trans   &trans
             >;
         };
 
         // Main modifiers and arrow keys
         ext_layer {
             bindings = <
-                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &kp PG_UP  &kp HOME     &kp UP       &kp END      &kp DEL
-                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &kp PG_DN  &kp LEFT     &kp DOWN     &kp RIGHT    &kp ENTER
-                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP
+                &kp ESC  &kt LCTRL  &kt LSHFT &kt LALT  &unstick_macro      &pg_up_trans  &home_trans     &up_trans       &end_trans      &del_trans
+                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD		    &pg_dn_trans  &left_trans     &down_trans     &right_trans    &enter_trans
+                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none               &c_mute_trans &c_vol_dn_trans &c_vol_up_trans &c_bri_dn_trans &c_bri_up_trans
                                               &trans    &trans              &trans    &trans
             >;
         };
