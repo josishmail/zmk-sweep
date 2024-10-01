@@ -54,7 +54,7 @@
         TRANS_MOD(UNDER, under_trans);
         TRANS_MOD(PLUS, plus_trans);
         TRANS_MOD(HASH, hash_trans);
-        TRANS_MOD(DLLR, dllr_trans);
+        TRANS_MOD(CARET, caret_trans);
         TRANS_MOD(AT, at_trans);
         TRANS_MOD(AMPS, amps_trans);
         TRANS_MOD(MINUS, minus_trans);
@@ -68,7 +68,7 @@
         TRANS_MOD(LEFT, left_trans);
         TRANS_MOD(DOWN, down_trans);
         TRANS_MOD(RIGHT, right_trans);
-        TRANS_MOD(ENTER, enter_trans);
+        TRANS_MOD(PRCNT, prcnt_trans);
         TRANS_MOD(C_MUTE, c_mute_trans);
         TRANS_MOD(C_VOL_DN, c_vol_dn_trans);
         TRANS_MOD(C_VOL_UP, c_vol_up_trans);
@@ -109,9 +109,9 @@
         // symbols
         sym_layer {
             bindings = <
-                &tilde_trans &lbkt_trans &lbrc_trans  &lpar_trans  &lt_trans             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PRCNT
-                &grave_trans &star_trans &equal_trans &under_trans &plus_trans           &kp PIPE &kp CARET &sk LSHFT &sk LCTRL &kp COLON
-                &hash_trans  &dllr_trans &at_trans    &amps_trans  &minus_trans          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
+                &tilde_trans &lbkt_trans &lbrc_trans  &lpar_trans  &lt_trans             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PIPE
+                &grave_trans &star_trans &equal_trans &under_trans &plus_trans           &kp DLLR &kp COLON &sk LSHFT &sk LCTRL &kp ENTER
+                &hash_trans  &caret_trans &at_trans    &amps_trans  &minus_trans          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
                                                       &trans       &trans                &trans   &trans
             >;
         };
@@ -120,7 +120,7 @@
         ext_layer {
             bindings = <
                 &kp ESC  &kt RCTRL  &kt RSHFT &kt RALT  &kt RCMD       &pg_up_trans  &home_trans     &up_trans       &end_trans      &del_trans
-                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD       &pg_dn_trans  &left_trans     &down_trans     &right_trans    &enter_trans
+                &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD       &pg_dn_trans  &left_trans     &down_trans     &right_trans    &prcnt_trans
                 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &unstick_macro &c_mute_trans &c_vol_dn_trans &c_vol_up_trans &c_bri_dn_trans &c_bri_up_trans
                                               &trans    &trans              &trans    &trans
             >;
