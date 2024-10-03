@@ -135,8 +135,8 @@
         settings_layer {
             bindings = <
                 &kp PSCRN  &kp INS  &kp SLCK &kp PAUSE_BREAK &none                 &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
-                &none      &none    &none    &none           &sys_reset            &sys_reset    &C_VOL_DN        &C_VOL_UP        &C_BRI_DN        &C_BRI_UP
-                &kp C_MENU &kp CAPS &none    &none           &bootloader		   &bootloader   &C_MUTE        &none        &out OUT_USB &out OUT_BLE
+                &none      &none    &none    &none           &sys_reset            &sys_reset    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP
+                &kp C_MENU &kp CAPS &none    &none           &bootloader		   &bootloader   &kp C_MUTE        &none        &out OUT_USB &out OUT_BLE
                                              &none           &tog SETTINGS         &tog SETTINGS &none  
             >;
         };
