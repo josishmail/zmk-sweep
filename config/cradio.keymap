@@ -69,12 +69,8 @@
         TRANS_MOD(DOWN, down_trans);
         TRANS_MOD(RIGHT, right_trans);
         TRANS_MOD(PRCNT, prcnt_trans);
-        TRANS_MOD(C_MUTE, c_mute_trans);
-        TRANS_MOD(C_VOL_DN, c_vol_dn_trans);
-        TRANS_MOD(C_VOL_UP, c_vol_up_trans);
-        TRANS_MOD(C_BRI_DN, c_bri_dn_trans);
-        TRANS_MOD(C_BRI_UP, c_bri_up_trans);
-        
+        TRANS_MOD(DLLR, dllr_trans);
+        TRANS_MOD(COLON, colon_trans);
     };
     macros {
         // reset all sticky modifiers
@@ -110,8 +106,8 @@
         sym_layer {
             bindings = <
                 &tilde_trans &lbkt_trans &lbrc_trans  &lpar_trans  &lt_trans             &kp GT   &kp RPAR  &kp RBRC  &kp RBKT  &kp PIPE
-                &grave_trans &star_trans &equal_trans &under_trans &plus_trans           &kp DLLR &kp COLON &sk LSHFT &sk LCTRL &kp ENTER
-                &hash_trans  &caret_trans &at_trans    &amps_trans  &minus_trans          &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
+                &grave_trans &star_trans &equal_trans &under_trans &plus_trans           &sk LCMD &sk LALT  &sk LSHFT &sk LCTRL &kp ENTER
+                &hash_trans  &dllr_trans &colon_trans    &amps_trans  &minus_trans       &kp EXCL &kp QMARK &kp BSLH  &kp DQT   &kp FSLH
                                                       &trans       &trans                &trans   &trans
             >;
         };
@@ -121,7 +117,7 @@
             bindings = <
                 &kp ESC  &kt RCTRL  &kt RSHFT &kt RALT  &kt RCMD       &pg_up_trans  &home_trans     &up_trans       &end_trans      &del_trans
                 &kp TAB  &sk LCTRL  &sk LSHFT &sk LALT  &sk LCMD       &pg_dn_trans  &left_trans     &down_trans     &right_trans    &prcnt_trans
-                &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &unstick_macro &c_mute_trans &c_vol_dn_trans &c_vol_up_trans &c_bri_dn_trans &c_bri_up_trans
+                &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &unstick_macro &trans        &trans          &trans          &at_trans       &caret_trans
                                               &trans    &trans              &trans    &trans
             >;
         };
@@ -139,8 +135,8 @@
         settings_layer {
             bindings = <
                 &kp PSCRN  &kp INS  &kp SLCK &kp PAUSE_BREAK &none                 &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
-                &none      &none    &none    &none           &sys_reset            &sys_reset    &none        &none        &none        &none
-                &kp C_MENU &kp CAPS &none    &none           &bootloader		   &bootloader   &none        &none        &out OUT_USB &out OUT_BLE
+                &none      &none    &none    &none           &sys_reset            &sys_reset    &C_VOL_DN        &C_VOL_UP        &C_BRI_DN        &C_BRI_UP
+                &kp C_MENU &kp CAPS &none    &none           &bootloader		   &bootloader   &C_MUTE        &none        &out OUT_USB &out OUT_BLE
                                              &none           &tog SETTINGS         &tog SETTINGS &none  
             >;
         };
